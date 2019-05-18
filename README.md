@@ -1,2 +1,2 @@
-# React-Tactics-
+# React-Tactics
 Custom React Hooks by Tactnician
