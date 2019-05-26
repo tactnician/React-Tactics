@@ -2,26 +2,31 @@ import React, {useState, useEffect} from 'react'
 import firebase from '../../firebase'
 
 
-export default function App() {
+export default function App(props) {
     const [issue, setIssue] = useState([]);
     const [loading, setLoading] = useState(true);
-
-    const issueRef = firebase.firestore().doc('Issues/1')
     
     useEffect(() => {
-        
+        const issueRef = firebase.database().ref('Issues');
+        console.log(issueRef);
 
-        issueRef.on('value', (snapshot)=> {
-            console.log(snapshot.val())
+        issueRef.once('value', function(snapshot){
+            console.log(snapshot.val());
 
             setIssue(snapshot.val());
+            console.log(issue)
             setLoading(false);
+            console.log(loading);
         })
     });
 
     return(
         <div className="App">
-            Hello from Hive
+            {props.children && React.cloneElement(props.children, {
+                firebaseRef: firebase.database().ref('Issues'),
+                issues: issue,
+                loading: loading
+            })}
         </div>
     )
 }
