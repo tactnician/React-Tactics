@@ -6,8 +6,7 @@ export default function App(props) {
     const [issue, setIssue] = useState([]);
     const [loading, setLoading] = useState(true);
     
-    useEffect(() => {
-        const issueRef = firebase.database().ref('Issues');
+    const issueRef = firebase.database().ref('Issues');
         console.log(issueRef);
 
         issueRef.once('value', function(snapshot){
@@ -18,10 +17,14 @@ export default function App(props) {
             setLoading(false);
             console.log(loading);
         })
-    });
+
+    // useEffect(() => {
+        
+    // });
 
     return(
         <div className="App">
+            <h3>Hive Alive</h3>
             {props.children && React.cloneElement(props.children, {
                 firebaseRef: firebase.database().ref('Issues'),
                 issues: issue,

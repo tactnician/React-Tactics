@@ -18,13 +18,20 @@ export default function Issues(props) {
     } else {
         return(
             <div className="Issues">
-                { props.issues.map((issue) => {
+                {Object.keys(Issues).map(key => {
+                    return(
+                        <div key = {key}>
+                            {Issues[key].title}
+                        </div>
+                    )
+                })}
+                {/* { props.issues.map((issue) => {
                     return(
                         <div>
                             {issue.title}
                         </div>
                     )
-                })}
+                })} */}
             </div>
         )
     }
