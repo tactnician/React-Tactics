@@ -7,14 +7,21 @@ import AddIssue from './views/AddIssue';
 
 const Routes = (props) => {
     return(
-        <BrowserRouter {...props}>
-            <Route exact path = '/' component={App}>
-                <Route path="/issues" compoonent={Issues} />
-                <Route path='/add-issue' component={AddIssue} />
-            </Route>
-        </BrowserRouter>
+        <>
+            <Route exact path = '/' component={App} />
+            <Route path="/issues" component={Issues} />
+            <Route path='/add-issue' component={AddIssue} />
+        </>
     )
-    
+    // return(
+    //     <Router {...props}>
+    //         <div>
+    //             <Route exact path = '/' component={App} />
+    //             <Route path="/issues" compoonent={Issues} />
+    //             <Route path='/add-issue' component={AddIssue} />
+    //         </div>
+    //     </Router> 
+    // )
 }
 
 

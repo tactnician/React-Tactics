@@ -11,7 +11,7 @@ export default function AddIssue(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        props.firebaseRef.push({
+        props.firebase.push({
             title: title,
         })
 
